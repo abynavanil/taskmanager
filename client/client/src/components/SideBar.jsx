@@ -2,10 +2,18 @@ import React from 'react';
 import Calendar from './Calendar';
 import '../styles/SideBar.css';
 import { useNavigate } from 'react-router-dom';
-// sidebar component displays the sidebar content on larger screens
-const Sidebar = ({ tasks = [], tags = [] }) => {
+import { useTasks } from '../context/TaskContext'; // Import the context
+
+// Sidebar component displays the sidebar content on larger screens
+const Sidebar = () => {
+  const { tasks } = useTasks(); // Get tasks from context
   const navigate = useNavigate();
   const today = new Date().toISOString().slice(0, 10);
+
+  // Extract tags from the latest tasks
+  const tags = Array.from(
+    new Set(tasks.flatMap(task => Array.isArray(task.tags) ? task.tags : []))
+  );
 
   const todayCount = tasks.filter(task => task.date === today).length;
   const totalCount = tasks.length;

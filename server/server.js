@@ -14,6 +14,7 @@ const app = express();
 app.use(cors({
   origin: [
     "http://localhost:5173",
+    "https://comfy-tapioca-74a575.netlify.app"
   ],
   credentials: true
 }));
