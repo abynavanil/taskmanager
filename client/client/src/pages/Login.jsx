@@ -39,8 +39,11 @@ const Login = () => {
     if (!validate()) return;
 
     try {
-      const res = await axios.post('http://localhost:8080/api/auth/login', formData);
-
+       // Use VITE_API_URL from .env for the backend URL
+      const res = await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/auth/login`,
+        formData
+      );
       const { token, user } = res.data;
       localStorage.setItem('token', token);
       localStorage.setItem('user', JSON.stringify({

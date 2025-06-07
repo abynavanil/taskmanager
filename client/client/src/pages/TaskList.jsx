@@ -44,17 +44,20 @@ const TaskList = () => {
   // Mark task as done/undone
   const handleToggleDone = async (task) => {
     try {
-      const res = await fetch(`http://localhost:8080/api/tasks/${task._id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
-        },
-        body: JSON.stringify({
-          ...task,
-          status: task.status === 'done' ? 'pending' : 'done',
-        }),
-      });
+      const res = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/tasks/${task._id}`,
+        {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+          body: JSON.stringify({
+            ...task,
+            status: task.status === 'done' ? 'pending' : 'done',
+          }),
+        }
+      );
       if (!res.ok) throw new Error('Failed to update task');
       await fetchTasks();
       toast.success(
@@ -76,12 +79,15 @@ const TaskList = () => {
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this task?')) return;
     try {
-      await fetch(`http://localhost:8080/api/tasks/${id}`, {
-        method: 'DELETE',
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
-        },
-      });
+      await fetch(
+        `${import.meta.env.VITE_API_URL}/api/tasks/${id}`,
+        {
+          method: 'DELETE',
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        }
+      );
       await fetchTasks();
       toast.success('Task deleted!');
     } catch (err) {
@@ -100,18 +106,21 @@ const TaskList = () => {
   // Save edit
   const handleEditSave = async () => {
     try {
-      const res = await fetch(`http://localhost:8080/api/tasks/${editTask._id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
-        },
-        body: JSON.stringify({
-          ...editTask,
-          title: editTitle,
-          description: editDescription,
-        }),
-      });
+      const res = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/tasks/${editTask._id}`,
+        {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+          body: JSON.stringify({
+            ...editTask,
+            title: editTitle,
+            description: editDescription,
+          }),
+        }
+      );
       if (!res.ok) throw new Error('Failed to update task');
       setEditModalOpen(false);
       setEditTask(null);

@@ -104,7 +104,8 @@ const NewTask = () => {
     };
 
     try {
-      const res = await fetch('http://localhost:8080/api/tasks', {
+       // Use VITE_API_URL from .env for the backend URL
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/tasks`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
