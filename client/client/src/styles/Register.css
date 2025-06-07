@@ -1,0 +1,184 @@
+.register-container {
+  position: relative;
+  min-height: calc(100vh - 70px);
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.wave-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.login-link {
+  color: #1D221F;
+  font-size: 16px;
+  line-height: 21.5px;
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+
+.register-card {
+  position: relative;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 32px 24px;
+  /* Reduced vertical padding */
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  margin-bottom: 0;
+  /* Remove extra margin at the bottom */
+}
+
+.register-title {
+  font-size: 32px;
+  font-weight: bold;
+  color: rgba(24, 119, 242, 1);
+  margin-bottom: 16px;
+  margin-top: 0;
+}
+
+.register-subtitle {
+  color: #1D221F;
+  font-size: 16px;
+  line-height: 21.5px;
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.social-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  font-size: 20px;
+}
+
+.social-icon:hover {
+  transform: translateY(-2px);
+}
+
+.social-icon.facebook {
+  background-color: #1877f2;
+  color: white;
+}
+
+.social-icon.google {
+  background-color: #eef1f6;
+  color: #3a3534;
+}
+
+.response-message {
+  text-align: center;
+  margin-top: 12px;
+  font-size: 14px;
+  color: green;
+}
+
+.social-icon.apple {
+  background-color: #000;
+  color: white;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 10px;
+}
+
+.register-form ::placeholder {
+  color: #000000;
+  /* Placeholder text color */
+  opacity: 1;
+  /* Ensures the placeholder is fully opaque */
+}
+
+
+.form-input {
+  width: 100%;
+  padding: 16px;
+  margin-top: 20px;
+  border-radius: 10px;
+  border: none;
+  border-bottom: 1px solid #646464;
+  /* You can change the color and thickness */
+  outline: none;
+  width: 100%;
+  font-size: 16px;
+  background-color: none;
+  outline: none;
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.form-input:focus {
+  border-color: #2563eb;
+}
+
+.register-button {
+  width: 50%;
+  padding: 16px;
+  border-radius: 12px;
+  border: none;
+  background-color: #1f2937;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background-color 0.2s ease;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.register-button:hover {
+  background-color: #111827;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .register-card {
+    padding: 20px 8px;
+    margin: 10px;
+  }
+
+  .register-title {
+    font-size: 28px;
+  }
+
+  .social-icons {
+    gap: 16px;
+  }
+
+  .social-icon {
+    width: 44px;
+    height: 44px;
+  }
+}

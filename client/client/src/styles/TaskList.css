@@ -1,0 +1,116 @@
+/* Task Card */
+.task-card {
+  background: #f3f4f6;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+/* Task Info */
+.task-info-title {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.task-info-desc {
+  color: #000000;
+  margin: 6px 0;
+}
+
+.task-info-meta {
+  font-size: 13px;
+  color: #000000;
+}
+
+/* Task Actions */
+.task-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.task-btn {
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.task-btn.edit {
+  background: #3b82f6;
+  color: #fff;
+}
+
+.task-btn.delete {
+  background: #ef4444;
+  color: #fff;
+}
+
+/* Modal Overlay */
+.task-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Modal Content */
+.task-modal-content {
+  background: #fff;
+  border-radius: 12px;
+  padding: 32px;
+  min-width: 320px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.task-modal-content input,
+.task-modal-content textarea {
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.task-modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.task-modal-actions button {
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.task-modal-actions .cancel {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.task-modal-actions .save {
+  background: #2563eb;
+  color: #fff;
+}
+
+.task-card.done .task-info-title,
+.task-card.done .task-info-desc {
+  text-decoration: line-through;
+  color: #6b7280;
+}
